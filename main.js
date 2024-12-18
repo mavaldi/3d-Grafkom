@@ -35,7 +35,7 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 
 document.getElementById("container3D").appendChild(renderer.domElement);
 
-camera.position.z = objToRender === "red" ? 4 : 500;
+camera.position.z = objToRender === "red" ? 3 : 500;
 
 const topLight = new THREE.DirectionalLight(0xffffff, 1); 
 topLight.position.set(500, 500, 500) 
@@ -51,6 +51,10 @@ if (objToRender === "red") {
 
 function animate() {
   requestAnimationFrame(animate);
+
+  if (object) {
+    object.position.y = -0.8;
+  }
   renderer.render(scene, camera);
 }
 
